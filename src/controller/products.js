@@ -1,90 +1,83 @@
-const fs = require( 'fs' )
-class Products
-{
-  constructor ( name )
-  {
-    this.name = name
+const fs = require("fs");
+class Products {
+  constructor(name) {
+    this.name = name;
   }
 
-  async getAllProducts ()
-  {
+  async getAllProducts() {
     try {
       const all = JSON.parse(
-        await fs.promises.readFile( `src/db/${ this.name }.json` )
-      )
-      console.log( all )
-      return all
-    } catch ( err ) {
-      console.log( err )
+        await fs.promises.readFile(`src/db/${this.name}.json`)
+      );
+      console.log(all);
+      return all;
+    } catch (err) {
+      console.log(err);
     }
   }
 
   // Get Poduct By ID
-  async getProductById ( id )
-  {
+  async getProductById(id) {
     try {
-      const all = await this.getAllProducts()
-      const allProds = all.find( ( item ) => item.id === id )
-      return allProds
-    } catch ( err ) {
-      console.log( err )
+      const all = await this.getAllProducts();
+      const allProds = all.find((item) => item.id === id);
+      return allProds;
+    } catch (err) {
+      console.log(err);
     }
   }
 
   // Create new Product
-  async createProduct ( objProd )
-  {
+  async createProduct(objProd) {
     try {
-      const all = await this.getAllProducts()
-      const newProd = objProd
-      objProd.id = all.length + 1
-      all.push( newProd )
+      const all = await this.getAllProducts();
+      const newProd = objProd;
+      objProd.id = all.length + 1;
+      all.push(newProd);
       await fs.promises.writeFile(
-        `src/db/${ this.name }.json`,
-        JSON.stringify( all )
-      )
-      return all
-    } catch ( error ) {
-      console.log( error )
+        `src/db/${this.name}.json`,
+        JSON.stringify(all)
+      );
+      return all;
+    } catch (error) {
+      console.log(error);
     }
   }
 
   // Update Product
-  async updateProduct ( objProd )
-  {
+  async updateProduct(objProd) {
     try {
-      let all = await this.getAllProducts()
-      all = all.map( ( item ) => ( item.id !== objProd.id ? item : objProd ) )
+      let all = await this.getAllProducts();
+      all = all.map((item) => (item.id !== objProd.id ? item : objProd));
 
       await fs.promises.writeFile(
-        `src/db/${ this.name }.json`,
-        JSON.stringify( all )
-      )
-      return all
-    } catch ( error ) {
-      console.log( error )
+        `src/db/${this.name}.json`,
+        JSON.stringify(all)
+      );
+      return all;
+    } catch (error) {
+      console.log(error);
     }
   }
 
   // Delete Product By ID
-  async deleteProduct ( id )
-  {
+  async deleteProduct(id) {
     try {
-      const all = await this.getAllProducts()
-      const allFilterproducts = all.filter( ( item ) => item.id !== id )
-      if ( JSON.stringify( all ) !== JSON.stringify( allFilterproducts ) ) {
+      const all = await this.getAllProducts();
+      const allFilterproducts = all.filter((item) => item.id !== id);
+      if (JSON.stringify(all) !== JSON.stringify(allFilterproducts)) {
         await fs.promises.writeFile(
-          `src/db/${ this.name }.json`,
-          JSON.stringify( allFilterproducts )
-        )
-        return allFilterproducts
+          `src/db/${this.name}.json`,
+          JSON.stringify(allFilterproducts)
+        );
+        return allFilterproducts;
       } else {
-        return false
+        return false;
       }
-    } catch ( err ) {
-      console.log( err )
+    } catch (err) {
+      console.log(err);
     }
   }
 }
 
-module.exports = Products
+module.exports = Products;
