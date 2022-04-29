@@ -79,8 +79,13 @@ textarea {
 }
 
 #form__content {
-  max-width: 980px;
+   max-width: 580px;
       width: 100%;
+  @media ( min-width: 980px){
+    max-width: 980px;
+   
+
+  }
 }
 #messages__container {
    max-width: 600px;
