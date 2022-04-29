@@ -22,6 +22,8 @@ $border-width: 1px solid rgba(0, 0, 0, 0.125);
 ::before {
   box-sizing: border-box;
   font-family: "Source Code Pro", monospace;
+  list-style: none;
+  padding: 0;
 }
 
 html,
@@ -44,9 +46,16 @@ button {
   transition-duration: 200ms;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
 }
+textarea {
+  padding: $space-sm;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  width: 100%;
+}
 #container {
   width: 100%;
   max-width: 1280px;
+  display: flex;
 }
 
 .p-1 {
@@ -64,13 +73,14 @@ button {
   background-clip: border-box;
 }
 
-#form__content,
-#messages__container {
+#form__content {
   max-width: 980px;
 }
-
+#messages__container {
+  max-width: 480px;
+}
 #formNewProduct {
-  max-width: 60%;
+  max-width: 100%;
   margin: 0px auto;
   padding: 1.25rem;
 }
@@ -85,6 +95,7 @@ button {
     padding: $space-sm;
     margin-bottom: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.125);
+    width: 100%;
   }
   &--button {
     button {
@@ -105,7 +116,7 @@ button {
 }
 
 .product__list {
-  max-width: 60%;
+  max-width: 100%;
   margin: 0px auto;
   padding: 1.25rem 0;
   &--item {
@@ -137,6 +148,9 @@ button {
         padding: 0.75rem;
         &-name {
           font-weight: 900;
+          display: flex;
+          text-align: left;
+          justify-content: flex-start;
         }
         &-price {
           color: $primary;
@@ -151,6 +165,44 @@ button {
           align-content: center;
         }
       }
+    }
+  }
+}
+.messages__wrapper {
+  button {
+    background-color: $primary;
+    color: $secondary;
+    width: 100%;
+    &:hover {
+      background-color: $primary-darken;
+      color: $secondary;
+    }
+  }
+}
+#menssageContainer {
+  padding: 0.25rem 0;
+  .message {
+    padding: 0.75rem 0;
+    &__box {
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+    &__email {
+      color: #3583fa;
+    }
+    &__date {
+      border: 1px solid #f23d4f;
+      padding: 0.25rem;
+      color: #f23d4f;
+    }
+    &__text {
+      background-color: hsl(150deg 49% 77%);
+      color: #018744;
+      padding: 1rem;
+      margin: 10px 0;
     }
   }
 }
