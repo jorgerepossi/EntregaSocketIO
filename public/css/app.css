@@ -39,6 +39,13 @@ textarea {
   width: 100%;
   max-width: 1280px;
   display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  #container {
+    flex-direction: row;
+  }
 }
 
 .p-1 {
@@ -59,14 +66,24 @@ textarea {
 
 #form__content {
   max-width: 980px;
+  width: 100%;
 }
 
 #messages__container {
-  max-width: 480px;
+  max-width: 600px;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  #messages__container {
+    width: 100%;
+    max-width: 480px;
+  }
 }
 
 #formNewProduct {
-  max-width: 100%;
+  width: 100%;
+  min-width: 290px;
+  max-width: 600px;
   margin: 0px auto;
   padding: 1.25rem;
 }
@@ -99,9 +116,11 @@ textarea {
 }
 
 .product__list {
-  max-width: 100%;
+  width: 100%;
+  min-width: 290px;
+  max-width: 600px;
   margin: 0px auto;
-  padding: 1.25rem 0;
+  padding: 1.25rem;
 }
 .product__list--item {
   width: 100%;
@@ -114,6 +133,10 @@ textarea {
 .product__list .list__body {
   display: flex;
   flex-direction: column;
+}
+.product__list .list__body--container {
+  display: flex;
+  flex-direction: column-reverse;
 }
 .product__list .list__body--row {
   display: flex;

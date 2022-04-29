@@ -56,6 +56,11 @@ textarea {
   width: 100%;
   max-width: 1280px;
   display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  @media (min-width: 768px){
+    flex-direction: row;
+  }
 }
 
 .p-1 {
@@ -75,14 +80,24 @@ textarea {
 
 #form__content {
   max-width: 980px;
+      width: 100%;
 }
 #messages__container {
-  max-width: 480px;
+   max-width: 600px;
+  width: 100%;
+  @media(min-width: 768px){
+   width: 100%;
+    max-width: 480px;
+   
+  }
 }
+
 #formNewProduct {
-  max-width: 100%;
-  margin: 0px auto;
-  padding: 1.25rem;
+  width: 100%;
+    min-width: 290px;
+    max-width: 600px;
+    margin: 0px auto;
+    padding: 1.25rem;
 }
 
 .form__group {
@@ -116,9 +131,11 @@ textarea {
 }
 
 .product__list {
-  max-width: 100%;
-  margin: 0px auto;
-  padding: 1.25rem 0;
+  width: 100%;
+    min-width: 290px;
+    max-width: 600px;
+    margin: 0px auto;
+    padding: 1.25rem;
   &--item {
     width: 100%;
     padding: 0 1.25rem;
@@ -131,6 +148,8 @@ textarea {
     display: flex;
     flex-direction: column;
     &--container {
+      display: flex;
+    flex-direction: column-reverse;
     }
     &--row {
       display: flex;
