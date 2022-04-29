@@ -1,5 +1,5 @@
 $opacity-full: 1;
-// colors 
+// colors
 $primary: hsl(243, 75%, 59%);
 $secondary: #dfe8ff;
 $primary-darken: hsl(243deg, 75%, 39%);
@@ -13,6 +13,9 @@ $space-xs: 0.5rem;
 $space-sm: 0.75rem;
 $space-md: 1rem;
 $space-lg: 1.25rem;
+
+// border
+$border-width: 1px solid rgba(0, 0, 0, 0.125);
 
 *,
 ::after,
@@ -69,7 +72,7 @@ button {
 #formNewProduct {
   max-width: 60%;
   margin: 0px auto;
-      padding: 1.25rem;
+  padding: 1.25rem;
 }
 
 .form__group {
@@ -101,16 +104,53 @@ button {
   }
 }
 
-  .product__list{
-    max-width: 60%;
-    margin: 0px auto;
-       padding: 1.25rem 0;
-    &--item{
-         width: 100%;
-             padding: 0 1.25rem;
+.product__list {
+  max-width: 60%;
+  margin: 0px auto;
+  padding: 1.25rem 0;
+  &--item {
+    width: 100%;
+    padding: 0 1.25rem;
+  }
+  .list__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .list__body {
+    display: flex;
+    flex-direction: column;
+    &--container {
     }
-    .list__header{
+    &--row {
       display: flex;
       justify-content: space-between;
+      border-left: $border-width;
+      border-right: $border-width;
+      border-bottom: $border-width;
+      .list__body--item {
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 40px;
+        background-color: #fff;
+        padding: 0.75rem;
+        &-name {
+          font-weight: 900;
+        }
+        &-price {
+          color: $primary;
+        }
+        &-photo img {
+          display: flex;
+          width: 100%;
+          padding: 0.75rem;
+          max-width: 120px;
+          justify-content: center;
+          align-items: center;
+          align-content: center;
+        }
+      }
     }
   }
+}
